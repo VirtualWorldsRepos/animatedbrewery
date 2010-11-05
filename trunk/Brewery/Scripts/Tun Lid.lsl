@@ -23,19 +23,37 @@ string _FERMENTING = "Fermenting";
 string _CLEARING = "Clearing";
 string _SERVING = "Serving";
 //End Header.ins
+// List tuns here that this script will operate on
+string _HLT = "HLT";
+string _MT  = "MT";
+string _KT  = "Kettle";
+
+// list will be populated with processes relevant to the particular tun
+list   transparent_procs = [];
+
 default
 {
 	state_entry()
 	{
+// add an extra 'else if' to add more tuns ...
+		if (llGetObjectName() == _HLT)
+		{
+			transparent_procs = [_MASHING, _SPARGING];
+		}
+		else if (llGetObjectName() == _MT)
+		{
+			transparent_procs = [_MILLING, _MASHING, _MASH_REST, _LAUTERING, _SPARGING];
+		}
+		else if (llGetObjectName() == _KT)
+		{
+			transparent_procs = [_LAUTERING, _SPARGING, _BOILING, _CHILLING];
+		}
 	}
 
 	link_message(integer sender, integer num, string message, key id)
 	{
-		if (message == _MASHING)
-		{
-			llSetAlpha(0.1, ALL_SIDES);
-		}
-		else if (message == _SPARGING)
+		// if the current process is relevant for this tun make the lid transparent so we can watch
+		if (llListFindList(transparent_procs, (list) message) != -1)
 		{
 			llSetAlpha(0.1, ALL_SIDES);
 		}

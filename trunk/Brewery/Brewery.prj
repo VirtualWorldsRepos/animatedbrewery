@@ -30,6 +30,8 @@
 		</Script>
 		<Script name="Lable Tun.lsl" guid="a381238e-e378-422b-b49e-d83579c15298">
 		</Script>
+		<Script name="Animate Tun Lid.lsl" guid="db45e515-97b2-49f6-89bf-3cc55ddddc67">
+		</Script>
 	</Object>
 	<Object name="Textures" guid="e601afb5-8afe-45b3-8cdf-0659e4a5889b">
 	</Object>
