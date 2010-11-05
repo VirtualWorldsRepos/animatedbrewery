@@ -1,0 +1,7 @@
+The list below is the channels that listen events listen on.
+This file lives in the Brewery project but maybe needs to be at a global project level?
+Or, let's say '69' is the Brewery channel prefix and other projects will use a different range?
+
+Main listener	6901
+MT Contents	6902
+Kettle Contents	6903
