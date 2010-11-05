@@ -24,6 +24,10 @@ string _CHILLING = "Chilling";
 string _FERMENTING = "Fermenting";
 string _CLEARING = "Clearing";
 string _SERVING = "Serving";
+
+integer _MENU_CHAN = 6901;
+integer _MT_CHAN = 6902;
+integer _KT_CHAN = 6903;
 //End Header.ins
 
 string _GRAIN = "MT Level";
@@ -80,8 +84,17 @@ float life = 0;             // Life in seconds for the system to make particles
 // Script variables
 integer flags;
 
-steam_on()
+steam_on(integer big)
 {
+	if (big)
+	{
+		age = 10;
+	}
+	else
+	{
+		age = 3;
+	}
+	
     flags = 0;
     if (target == "owner") target = llGetOwner();
     if (target == "self") target = llGetKey();
@@ -130,31 +143,50 @@ string  _EMPTY   = "EMPTY";
 string  _HALF    = "HALF";
 string  _FULL    = "FULL";
 
-list empty_processes;
 list half_processes;
 list full_processes;
 
 // OK, do we need two steam levels below as well (more vig-or-ous for the boil?
 
-list steam_on_processes;
+list big_steam_processes;
+list little_steam_processes;
 
-vector  starting_size;
+vector  starting_pos;
 
 default
 {
+	integer chan;
+		
 	state_entry()
 	{
-		starting_size = llGetPos();
-		// [TODO: listen only to brewery]
-		llListen(_INTERNAL_CHANNEL,"","","");
-		// MT level processes
-		half_processes += [ _MILLING, _LAUTERING, _BOILING ];
-		full_processes += [ _MASHING, _MASH_REST, _SPARGING ];
-		steam_on_processes += [_MASHING, _MASH_REST, _LAUTERING, _SPARGING ];
-		// Kettle level processes
-		//		half_processes += [ _LAUTERING ];
-		//		full_processes += [ _SPARGING, _BOILING, _CHILLING ];
-		//		steam_on_processes += [ _BOILING ];
+		string  my_name = llGetObjectName();
+		
+		starting_pos = llGetPos();
+		if (my_name = _GRAIN)
+		{
+			chan = _MT_CHAN;
+			// MT level processes
+			half_processes += [ _MILLING, _LAUTERING, _BOILING ];
+			full_processes += [ _MASHING, _MASH_REST, _SPARGING ];
+			little_steam_processes += [_MASHING, _MASH_REST, _LAUTERING, _SPARGING ];
+			big_steam_processes = [];
+		}
+		else if (my_name = _WORT)
+		{
+			chan = _KT_CHAN;
+			// Kettle level processes
+			half_processes += [ _LAUTERING ];
+			full_processes += [ _SPARGING, _BOILING, _CHILLING ];
+			big_steam_processes += [ _BOILING ];
+			little_steam_processes = [ _LAUTERING, _SPARGING ];
+		}
+		else
+		{
+			llSay(PUBLIC_CHANNEL, "PANIC!!");
+		}
+
+		// [TODO: listen only to brewery, perhaps using llGetOwner() ??]
+		llListen(chan,"","","");
 	}
 
 	listen(integer ch, string name, key id, string cmd)
@@ -164,19 +196,23 @@ default
 			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + id + " " + name);
 			if (llListFindList(full_processes, (list) cmd) != -1)
 			{
-				llSetPos(starting_size + _FULL_LVL);
+				llSetPos(starting_pos + _FULL_LVL);
 			}
 			else if (llListFindList(half_processes, (list) cmd) != -1)
 			{
-				llSetPos(starting_size + _HALF_LVL);
+				llSetPos(starting_pos + _HALF_LVL);
 			}
 			else
 			{
-				llSetPos(starting_size);
+				llSetPos(starting_pos);
 			};
-			if (llListFindList(steam_on_processes, (list) cmd) != -1)
+			if (llListFindList(big_steam_processes, (list) cmd) != -1)
 			{
-				steam_on();
+				steam_on(TRUE);
+			}
+			else if (llListFindList(little_steam_processes, (list) cmd) != -1)
+			{
+				steam_on(FALSE);
 			}
 			else
 			{
