@@ -28,12 +28,15 @@ string _SERVING = "Serving";
 integer _MENU_CHAN = 6901;
 integer _MT_CHAN = 6902;
 integer _KT_CHAN = 6903;
+integer _HLT_CHAN = 6904;
+
 //End Header.ins
 
 string _GRAIN = "MT Level";
 string _WORT = "Kettle Level";
-vector _FULL_LVL = <4.0, 0.0, 0.0>;
-vector _HALF_LVL = <2.0, 0.0, 0.0>;
+string _HOTL = "Hot Liquor";
+vector _FULL_LVL = <0.0, 0.0, 2.0>;
+vector _HALF_LVL = <0.0, 0.0, 1.0>;
 vector _EMPTY_LVL = <0.0, 0.0, 0.0>;
 
 // Mask Flags - set to TRUE to enable
@@ -152,17 +155,16 @@ list big_steam_processes;
 list little_steam_processes;
 
 vector  starting_pos;
+integer chan;
 
 default
 {
-	integer chan;
-		
 	state_entry()
 	{
 		string  my_name = llGetObjectName();
 		
 		starting_pos = llGetPos();
-		if (my_name = _GRAIN)
+		if (my_name == _GRAIN)
 		{
 			chan = _MT_CHAN;
 			// MT level processes
@@ -171,7 +173,7 @@ default
 			little_steam_processes += [_MASHING, _MASH_REST, _LAUTERING, _SPARGING ];
 			big_steam_processes = [];
 		}
-		else if (my_name = _WORT)
+		else if (my_name == _WORT)
 		{
 			chan = _KT_CHAN;
 			// Kettle level processes
@@ -179,6 +181,13 @@ default
 			full_processes += [ _SPARGING, _BOILING, _CHILLING ];
 			big_steam_processes += [ _BOILING ];
 			little_steam_processes = [ _LAUTERING, _SPARGING ];
+		}
+		else if (my_name == _HOTL)
+		{
+			chan = _HLT_CHAN;
+			half_processes += [ _MASHING, _SPARGING ];
+			full_processes += [ _RESET, _INSTRUCTIONS, _MILLING, _MASH_REST, _LAUTERING, _BOILING, _CHILLING, _FERMENTING, _CLEARING, _SERVING ];
+			little_steam_processes = [ _RESET, _INSTRUCTIONS, _MASHING, _SPARGING, _RESET, _MILLING, _MASH_REST, _LAUTERING, _BOILING, _CHILLING, _FERMENTING, _CLEARING, _SERVING ];
 		}
 		else
 		{
@@ -193,7 +202,7 @@ default
 	{
 		if (id == id) // make sure it's the brewery talking to us!
 		{
-			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + id + " " + name);
+			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + (string) id + " " + name);
 			if (llListFindList(full_processes, (list) cmd) != -1)
 			{
 				llSetPos(starting_pos + _FULL_LVL);

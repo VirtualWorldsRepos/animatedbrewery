@@ -87,7 +87,12 @@ default
 
 	state_entry()
 	{
-		llSetText("Online Detector\nTouch to Claim",<1,1,1>,1);
+//		llSetText("Online Detector\nTouch to Claim",<1,1,1>,1);
+		nameKey = llGetOwner();
+		name = llKey2Name(nameKey);
+		llSetText(name + "\nSetting up...",<1,1,1>,1);
+		llSetTimerEvent(60.0);
+		llTargetOmega(<0.0, 1.0, 1.0>, PI_BY_TWO, 1.0); 
 	}
 
 	touch_start(integer total_number)
@@ -97,7 +102,7 @@ default
 			nameKey = llDetectedKey(0);
 			name = llDetectedName(0);
 			llSetText(name + "\nSetting up...",<1,1,1>,1);
-			llSetTimerEvent(4.0);
+			llSetTimerEvent(60.0);
 			return;
 		}
 
@@ -119,14 +124,24 @@ default
 		}
 		else
 		{
-			if(isAvailable && isOnline)
+			if(isAvailable)
 			{
 				llInstantMessage(nameKey, llDetectedName(0) + " is paging you from " + llGetRegionName());
-				llWhisper(0,"A message has been sent to " + name);
+				if (isOnline)
+				{
+					llWhisper(0,"A message has been sent to " + name);
+				}
+				else
+				{
+					llWhisper(0,"As she is offline, an e-mail message has been sent to " + name);
+				}	
+			}
+			else
+			{
+				llWhisper(0, "Sorry, " + name + " cannot be disturbed right now.");
 			}
 		}
 	}
-
 
 	timer()
 	{
