@@ -17,13 +17,6 @@ state open
 			llSetPos(llGetPos() - <0.0, 0.0, 3.8>);
 			state closed;
 		}
-		else
-		{
-			while (total_number--)
-			{
-				llInstantMessage(llDetectedKey(total_number),"Sorry, we're not open right now.  Please IM Kim Minuet for information :) ");
-			}
-		}
 	}
 }
 
@@ -36,6 +29,13 @@ state closed
 			//            llSay(0, "Touched: "+(string)total_number);
 			llSetPos(llGetPos() + <0.0, 0.0, 3.8>);
 			state open;
+		}
+		else
+		{
+			while (total_number--)
+			{
+				llInstantMessage(llDetectedKey(total_number),"Sorry, we're not open right now.  Please IM Kim Minuet for information :) ");
+			}
 		}
 	}
 }
