@@ -35,8 +35,8 @@ integer _HLT_CHAN = 6904;
 string _GRAIN = "MT Level";
 string _WORT = "Kettle Level";
 string _HOTL = "Hot Liquor";
-vector _FULL_LVL = <0.0, 0.0, 2.0>;
-vector _HALF_LVL = <0.0, 0.0, 1.0>;
+vector _FULL_LVL = <0.0, 0.0, 1.8>;
+vector _HALF_LVL = <0.0, 0.0, 0.9>;
 vector _EMPTY_LVL = <0.0, 0.0, 0.0>;
 
 // Mask Flags - set to TRUE to enable
