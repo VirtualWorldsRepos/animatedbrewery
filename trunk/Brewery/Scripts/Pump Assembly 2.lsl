@@ -35,6 +35,15 @@ default
 			llSetTexture("Water", ALL_SIDES);
 			llSetTextureAnim(ANIM_ON | SMOOTH | LOOP , ALL_SIDES, 1, 1, 1.0, 1.0, 0.5);
 		}
+		else if (llListFindList( [ _CHILLING ], (list) message) != -1 )
+		{
+			// Components that need to run in reverse have the string "Reverse" imbedded in their name
+			if (llSubStringIndex(llGetObjectName(), "Reverse") != -1)
+			{
+				llSetTexture("Water", ALL_SIDES);
+				llSetTextureAnim(ANIM_ON | SMOOTH | LOOP | REVERSE , ALL_SIDES, 1, 1, 1.0, 1.0, 0.5);
+			}
+		}
 		else
 		{
 			llSetTexture("SS", ALL_SIDES);
