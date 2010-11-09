@@ -178,7 +178,7 @@ default
 		{
 			chan = _KT_CHAN;
 			half_processes += [ _LAUTERING ];
-			full_processes += [ _SPARGING, _BOILING, _CHILLING ];
+			full_processes += [ _SPARGING, _BOILING, _WHIRLPOOLING, _CHILLING ];
 			big_steam_processes += [ _BOILING ];
 			little_steam_processes = [ _LAUTERING, _SPARGING ];
 			whirlpool_processes = [_WHIRLPOOLING];
@@ -205,7 +205,7 @@ default
 	{
 		if (id == id) // make sure it's the brewery talking to us!
 		{
-			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + (string) id + " " + name);
+//			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + (string) id + " " + name);
 
 			// Level of tun contents ...
 			if (llListFindList(full_processes, (list) cmd) != -1)
