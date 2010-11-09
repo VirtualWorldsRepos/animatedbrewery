@@ -5,21 +5,23 @@
             <map>
             <key>group_body</key>
                 <map>
-                <key>1806694057</key>
+                <key>1944051260</key>
                     <map>
                     <key>description</key>
                         <string>Animated 3 Vessel Brewing System</string>
                     <key>name</key>
                         <string>Brewery</string>
+                    <key>parent</key>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>64.508598327636719</real>
-                            <real>208.07373046875</real>
-                            <real>23.372947692871094</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-0.000274658203125</real>
+                            <real>-0.028051376342773438</real>
                         </array>
                     <key>rotation</key>
                         <array>
@@ -259,30 +261,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694058</key>
+                <key>1944051261</key>
                     <map>
                     <key>description</key>
                         <string>Hot Liquor Tank</string>
                     <key>name</key>
                         <string>HLT</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>2.499725341796875</real>
-                            <real>1</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-2.5</real>
+                            <real>0.97194862365722656</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>0</real>
                             <real>1</real>
+                            <real>0</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -457,30 +459,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694059</key>
+                <key>1944051262</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Pipe2B</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-1.4319305419921875</real>
-                            <real>0.29999923706054688</real>
+                            <real>-0.00040435791015625</real>
+                            <real>1.4316558837890625</real>
+                            <real>0.27194786071777344</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>-0</real>
                             <real>-0</real>
-                            <real>0.7071068286895752</real>
-                            <real>0.70710670948028564</real>
+                            <real>-0.70710670948028564</real>
+                            <real>0.70710688829421997</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -507,7 +509,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -536,7 +538,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -565,7 +567,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -594,7 +596,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -655,30 +657,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694060</key>
+                <key>1944051263</key>
                     <map>
                     <key>description</key>
                         <string>Pump</string>
                     <key>name</key>
                         <string>Pump2</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-1.25</real>
-                            <real>0.29999923706054688</real>
+                            <real>-0.00040435791015625</real>
+                            <real>1.249725341796875</real>
+                            <real>0.27194786071777344</real>
                         </array>
                     <key>rotation</key>
                         <array>
-                            <real>-0.517142653465271</real>
                             <real>-0.48224842548370361</real>
-                            <real>0.48224839568138123</real>
-                            <real>0.51714259386062622</real>
+                            <real>0.517142653465271</real>
+                            <real>-0.51714259386062622</real>
+                            <real>0.48224836587905884</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -705,7 +707,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -734,7 +736,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -763,7 +765,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -824,30 +826,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694061</key>
+                <key>1944051264</key>
                     <map>
                     <key>description</key>
                         <string>(No Description)</string>
                     <key>name</key>
                         <string>Pipe1</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>1.25</real>
-                            <real>0.99912834167480469</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-1.250274658203125</real>
+                            <real>0.97107696533203125</real>
                         </array>
                     <key>rotation</key>
                         <array>
-                            <real>-0.33334299921989441</real>
                             <real>0.33331269025802612</real>
-                            <real>0.62361401319503784</real>
-                            <real>0.62361103296279907</real>
+                            <real>0.33334299921989441</real>
+                            <real>-0.62361103296279907</real>
+                            <real>0.62361395359039307</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -874,7 +876,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -903,7 +905,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -932,7 +934,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -961,7 +963,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -1022,30 +1024,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694062</key>
+                <key>1944051265</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Pump1</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>1.25</real>
-                            <real>0.99905204772949219</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-1.250274658203125</real>
+                            <real>0.97100067138671875</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>-0.500091552734375</real>
-                            <real>-0.500091552734375</real>
-                            <real>0.49993893504142761</real>
-                            <real>0.49987789988517761</real>
+                            <real>0.500091552734375</real>
+                            <real>-0.49987789988517761</real>
+                            <real>0.49993896484375</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -1072,7 +1074,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -1101,7 +1103,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -1130,7 +1132,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-0.74589818716049194</real>
                             <key>media_flags</key>
@@ -1191,30 +1193,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694063</key>
+                <key>1944051266</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Dial Thermometer</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0.69991302490234375</real>
-                            <real>0</real>
-                            <real>1.5</real>
+                            <real>-0.7003173828125</real>
+                            <real>-0.000274658203125</real>
+                            <real>1.4719486236572266</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>-1</real>
                             <real>0</real>
+                            <real>1</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -1418,30 +1420,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694064</key>
+                <key>1944051267</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Pipe2A</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-1.072601318359375</real>
-                            <real>0.29999923706054688</real>
+                            <real>-0.00040435791015625</real>
+                            <real>1.07232666015625</real>
+                            <real>0.27194786071777344</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>-0</real>
                             <real>-0</real>
-                            <real>0.7071068286895752</real>
-                            <real>0.70710670948028564</real>
+                            <real>-0.70710670948028564</real>
+                            <real>0.70710688829421997</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -1468,7 +1470,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -1497,7 +1499,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -1526,7 +1528,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -1555,7 +1557,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-3.1053524017333984</real>
                             <key>media_flags</key>
@@ -1616,30 +1618,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694065</key>
+                <key>1944051268</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Chimney</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-2.5</real>
-                            <real>7.25</real>
+                            <real>-0.00040435791015625</real>
+                            <real>2.499725341796875</real>
+                            <real>7.2219486236572266</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>0</real>
                             <real>1</real>
+                            <real>0</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -1814,30 +1816,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694066</key>
+                <key>1944051269</key>
                     <map>
                     <key>description</key>
                         <string>Grain Mill</string>
                     <key>name</key>
                         <string>Mill</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>0</real>
-                            <real>3.1020851135253906</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-0.000274658203125</real>
+                            <real>3.0740337371826172</real>
                         </array>
                     <key>rotation</key>
                         <array>
-                            <real>0.49999237060546875</real>
                             <real>-0.50005340576171875</real>
-                            <real>0.49980926513671875</real>
-                            <real>0.50014489889144897</real>
+                            <real>-0.49999237060546875</real>
+                            <real>-0.50014489889144897</real>
+                            <real>0.49980929493904114</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -1983,30 +1985,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694067</key>
+                <key>1944051270</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>HLT Lid</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>2.499786376953125</real>
-                            <real>2</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-2.50006103515625</real>
+                            <real>1.9719486236572266</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>-0</real>
                             <real>-0</real>
+                            <real>-0.37460583448410034</real>
                             <real>0.92718416452407837</real>
-                            <real>0.37460583448410034</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -2152,30 +2154,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694068</key>
+                <key>1944051271</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Dial Thermometer</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0.6999969482421875</real>
-                            <real>2.50048828125</real>
-                            <real>1.5</real>
+                            <real>-0.70040130615234375</real>
+                            <real>-2.500762939453125</real>
+                            <real>1.4719486236572266</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>-1</real>
                             <real>0</real>
+                            <real>1</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -2379,30 +2381,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694069</key>
+                <key>1944051272</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Hopper</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>0</real>
-                            <real>3.5020847320556641</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-0.000274658203125</real>
+                            <real>3.4740333557128906</real>
                         </array>
                     <key>rotation</key>
                         <array>
+                            <real>0.70710676908493042</real>
                             <real>-0.70710676908493042</real>
-                            <real>-0.70710676908493042</real>
-                            <real>-0.00018500960140954703</real>
                             <real>0</real>
+                            <real>0.000244140625</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -2635,30 +2637,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694070</key>
+                <key>1944051273</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Kettle Lid</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-2.500213623046875</real>
-                            <real>2</real>
+                            <real>-0.00040435791015625</real>
+                            <real>2.49993896484375</real>
+                            <real>1.9719486236572266</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>-0</real>
                             <real>-0</real>
+                            <real>-0.37459519505500793</real>
                             <real>0.9271884560585022</real>
-                            <real>0.37459519505500793</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -2804,30 +2806,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694071</key>
+                <key>1944051274</key>
                     <map>
                     <key>description</key>
                         <string>Kettle</string>
                     <key>name</key>
                         <string>Kettle</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-2.5</real>
-                            <real>1</real>
+                            <real>-0.00040435791015625</real>
+                            <real>2.499725341796875</real>
+                            <real>0.97194862365722656</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>0</real>
                             <real>1</real>
+                            <real>0</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -3002,30 +3004,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694072</key>
+                <key>1944051275</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>MT Lid</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>-0.000213623046875</real>
-                            <real>2</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-6.103515625e-005</real>
+                            <real>1.9719486236572266</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>-0</real>
                             <real>-0</real>
+                            <real>-0.37460583448410034</real>
                             <real>0.92718416452407837</real>
-                            <real>0.37460583448410034</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -3171,30 +3173,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694073</key>
+                <key>1944051276</key>
                     <map>
                     <key>description</key>
                         <string>Mash Tun</string>
                     <key>name</key>
                         <string>MT</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>0</real>
-                            <real>0</real>
-                            <real>1</real>
+                            <real>-0.00040435791015625</real>
+                            <real>-0.000274658203125</real>
+                            <real>0.97194862365722656</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>0</real>
                             <real>1</real>
+                            <real>0</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -3369,30 +3371,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694074</key>
+                <key>1944051277</key>
                     <map>
                     <key>description</key>
                         <string>.</string>
                     <key>name</key>
                         <string>Pipe 3B</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>-3.2041854858398437</real>
-                            <real>-1.250274658203125</real>
-                            <real>2.9137153625488281</real>
+                            <real>3.2037811279296875</real>
+                            <real>1.25</real>
+                            <real>2.8856639862060547</real>
                         </array>
                     <key>rotation</key>
                         <array>
-                            <real>-0</real>
-                            <real>-0</real>
-                            <real>-0</real>
+                            <real>0</real>
+                            <real>0</real>
                             <real>1</real>
+                            <real>0</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -3419,7 +3421,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-3.1329641342163086</real>
                             <key>media_flags</key>
@@ -3448,7 +3450,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-3.1329641342163086</real>
                             <key>media_flags</key>
@@ -3477,7 +3479,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-3.1329641342163086</real>
                             <key>media_flags</key>
@@ -3506,7 +3508,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-3.1329641342163086</real>
                             <key>media_flags</key>
@@ -3567,30 +3569,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694075</key>
+                <key>1944051278</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Pipe 3A</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>-0.00040435791015625</real>
-                            <real>-1.250274658203125</real>
-                            <real>1.6942272186279297</real>
+                            <real>0</real>
+                            <real>1.25</real>
+                            <real>1.6661758422851563</real>
                         </array>
                     <key>rotation</key>
                         <array>
-                            <real>-0.70710676908493042</real>
                             <real>0</real>
                             <real>-0.70710676908493042</real>
                             <real>0.000244140625</real>
+                            <real>0.70710670948028564</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -3617,7 +3619,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -3646,7 +3648,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -3675,7 +3677,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -3704,7 +3706,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -3765,30 +3767,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694076</key>
+                <key>1944051279</key>
                     <map>
                     <key>description</key>
                         <string>Plate Chiller</string>
                     <key>name</key>
                         <string>Chiller</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>-0.00040435791015625</real>
-                            <real>-1.250274658203125</real>
-                            <real>1.3179416656494141</real>
+                            <real>0</real>
+                            <real>1.25</real>
+                            <real>1.2898902893066406</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>-1</real>
                             <real>0</real>
+                            <real>1</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -3815,7 +3817,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-1.5573740005493164</real>
                             <key>media_flags</key>
@@ -3844,7 +3846,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>c784165d-d47c-4c42-9619-e937f6ad4112</uuid>
                             <key>imagerot</key>
                                 <real>-1.5573740005493164</real>
                             <key>media_flags</key>
@@ -3873,7 +3875,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-1.5573740005493164</real>
                             <key>media_flags</key>
@@ -3902,7 +3904,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-1.5573740005493164</real>
                             <key>media_flags</key>
@@ -3931,7 +3933,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-1.5573740005493164</real>
                             <key>media_flags</key>
@@ -3960,7 +3962,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>00000000-0000-2222-3333-100000001013</uuid>
+                                <uuid>5748decc-f629-461c-9a36-a35a221fe21f</uuid>
                             <key>imagerot</key>
                                 <real>-1.5573740005493164</real>
                             <key>media_flags</key>
@@ -4021,30 +4023,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694077</key>
+                <key>1944051280</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>HLT Level</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>-0.00040435791015625</real>
-                            <real>2.499725341796875</real>
-                            <real>1.8855094909667969</real>
+                            <real>0</real>
+                            <real>-2.5</real>
+                            <real>-5.340576171875e-005</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>-1</real>
                             <real>0</real>
+                            <real>1</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -4190,30 +4192,30 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694083</key>
+                <key>1944051281</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Primitive</string>
                     <key>parent</key>
-                        <string>1806694057</string>
+                        <string>1944051282</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>-0.00040435791015625</real>
-                            <real>-2.500274658203125</real>
-                            <real>0.027740478515625</real>
+                            <real>0</real>
+                            <real>2.5</real>
+                            <real>-0.0003108978271484375</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>-1</real>
                             <real>0</real>
+                            <real>1</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -4359,30 +4361,28 @@
                             </map>
                         </map>
                     </map>
-                <key>1806694084</key>
+                <key>1944051282</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>MT Level</string>
-                    <key>parent</key>
-                        <string>1806694057</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>-0.00040435791015625</real>
-                            <real>-0.000274658203125</real>
-                            <real>0.028051376342773438</real>
+                            <real>49.284679412841797</real>
+                            <real>229.98846435546875</real>
+                            <real>23.423053741455078</real>
                         </array>
                     <key>rotation</key>
                         <array>
                             <real>0</real>
                             <real>0</real>
-                            <real>-1</real>
                             <real>0</real>
+                            <real>1</real>
                         </array>
                     <key>scale</key>
                         <array>
@@ -4409,7 +4409,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>89556747-24cb-43ed-920b-47caed15465f</uuid>
+                                <uuid>78662e92-4e59-439f-8d1f-85e3ae1c683f</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -4419,9 +4419,9 @@
                             <key>offsett</key>
                                 <real>0</real>
                             <key>scales</key>
-                                <real>1</real>
+                                <real>1.5</real>
                             <key>scalet</key>
-                                <real>1</real>
+                                <real>1.5</real>
                             </map>
                             <map>
                             <key>bump</key>
@@ -4438,7 +4438,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>89556747-24cb-43ed-920b-47caed15465f</uuid>
+                                <uuid>78662e92-4e59-439f-8d1f-85e3ae1c683f</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -4448,9 +4448,9 @@
                             <key>offsett</key>
                                 <real>0</real>
                             <key>scales</key>
-                                <real>1</real>
+                                <real>1.5</real>
                             <key>scalet</key>
-                                <real>1</real>
+                                <real>1.5</real>
                             </map>
                             <map>
                             <key>bump</key>
@@ -4467,7 +4467,7 @@
                             <key>glow</key>
                                 <real>0</real>
                             <key>imageid</key>
-                                <uuid>89556747-24cb-43ed-920b-47caed15465f</uuid>
+                                <uuid>78662e92-4e59-439f-8d1f-85e3ae1c683f</uuid>
                             <key>imagerot</key>
                                 <real>0</real>
                             <key>media_flags</key>
@@ -4477,9 +4477,9 @@
                             <key>offsett</key>
                                 <real>0</real>
                             <key>scales</key>
-                                <real>1</real>
+                                <real>1.5</real>
                             <key>scalet</key>
-                                <real>1</real>
+                                <real>1.5</real>
                             </map>
                         </array>
                     <key>volume</key>
@@ -4531,16 +4531,16 @@
                 </map>
             <key>root_position</key>
                 <array>
-                    <real>64.508598327636719</real>
-                    <real>208.07373046875</real>
-                    <real>23.372947692871094</real>
+                    <real>49.284679412841797</real>
+                    <real>229.98846435546875</real>
+                    <real>23.423053741455078</real>
                 </array>
             <key>root_rotation</key>
                 <array>
                     <real>0</real>
                     <real>0</real>
-                    <real>1</real>
                     <real>0</real>
+                    <real>1</real>
                 </array>
             </map>
         </array>

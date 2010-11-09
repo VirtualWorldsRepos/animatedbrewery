@@ -24,7 +24,6 @@ default
 {
 	state_entry()
 	{
-		llSetText(llGetObjectName() <1.0, 0.0, 0.0>, 0.5);
 	}
 
 	link_message(integer sender, integer num, string message, key id)
@@ -38,7 +37,7 @@ default
 				PSYS_PART_START_SCALE, <0.5, 0.5, 0.0>,
 				PSYS_PART_END_SCALE, <0.1, 0.1, 0.0>,
 				PSYS_SRC_BURST_PART_COUNT, 500,
-				PSYS_SRC_TEXTURE, "Maris Otter",
+				PSYS_SRC_TEXTURE, "MO",
 				PSYS_SRC_MAX_AGE, 30.0,
 				PSYS_PART_START_COLOR, <1.0, 1.0, 1.0>
 					]);

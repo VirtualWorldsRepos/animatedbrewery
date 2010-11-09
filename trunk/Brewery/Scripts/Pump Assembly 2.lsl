@@ -25,7 +25,6 @@ default
 {
 	state_entry()
 	{
-		llSetText(llGetObjectDesc(), <1.0, 0.0, 0.0>, 0.5);
 	}
 
 	link_message(integer sender, integer num, string message, key id)

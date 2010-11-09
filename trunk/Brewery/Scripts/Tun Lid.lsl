@@ -18,15 +18,16 @@ string _MASH_REST = "Mash Rest";
 string _LAUTERING = "Lautering";
 string _SPARGING = "Sparging";
 string _BOILING = "Boiling";
+string _WHIRLPOOLING = "Whirlpooling";
 string _CHILLING = "Chilling";
 string _FERMENTING = "Fermenting";
 string _CLEARING = "Clearing";
 string _SERVING = "Serving";
 //End Header.ins
 // List tuns here that this script will operate on
-string _HLT = "HLT";
-string _MT  = "MT";
-string _KT  = "Kettle";
+string _HLT = "HLT Lid";
+string _MT  = "MT Lid";
+string _KT  = "Kettle Lid";
 
 // list will be populated with processes relevant to the particular tun
 list   transparent_procs = [];
@@ -46,7 +47,7 @@ default
 		}
 		else if (llGetObjectName() == _KT)
 		{
-			transparent_procs = [_LAUTERING, _SPARGING, _BOILING, _CHILLING];
+			transparent_procs = [_LAUTERING, _SPARGING, _BOILING, _WHIRLPOOLING, _CHILLING];
 		}
 	}
 

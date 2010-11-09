@@ -53,7 +53,7 @@ list    vLstTmt;          //-- List To Store Timeout During Sensor Processing --
 
 my_message(string name, key id)
 {
-	key group_id = NULL_KEY;
+	key group_id = llList2String(llGetObjectDetails(llGetKey(), [OBJECT_GROUP]), 0);
 
 	llInstantMessage(id, "Please join our group at secondlife:///app/group/" + (string) group_id + "/about");
 	llGiveInventory(id, "Welcome Card");
