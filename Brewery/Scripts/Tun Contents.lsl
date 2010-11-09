@@ -20,6 +20,7 @@ string _MASH_REST = "Mash Rest";
 string _LAUTERING = "Lautering";
 string _SPARGING = "Sparging";
 string _BOILING = "Boiling";
+string _WHIRLPOOLING = "Whirlpooling";
 string _CHILLING = "Chilling";
 string _FERMENTING = "Fermenting";
 string _CLEARING = "Clearing";
@@ -149,10 +150,10 @@ string  _FULL    = "FULL";
 list half_processes;
 list full_processes;
 
-// OK, do we need two steam levels below as well (more vig-or-ous for the boil?
-
 list big_steam_processes;
 list little_steam_processes;
+
+list whirlpool_processes;
 
 vector  starting_pos;
 integer chan;
@@ -167,20 +168,20 @@ default
 		if (my_name == _GRAIN)
 		{
 			chan = _MT_CHAN;
-			// MT level processes
 			half_processes += [ _MILLING, _LAUTERING, _BOILING ];
 			full_processes += [ _MASHING, _MASH_REST, _SPARGING ];
 			little_steam_processes += [_MASHING, _MASH_REST, _LAUTERING, _SPARGING ];
 			big_steam_processes = [];
+			whirlpool_processes = [];
 		}
 		else if (my_name == _WORT)
 		{
 			chan = _KT_CHAN;
-			// Kettle level processes
 			half_processes += [ _LAUTERING ];
 			full_processes += [ _SPARGING, _BOILING, _CHILLING ];
 			big_steam_processes += [ _BOILING ];
 			little_steam_processes = [ _LAUTERING, _SPARGING ];
+			whirlpool_processes = [_WHIRLPOOLING];
 		}
 		else if (my_name == _HOTL)
 		{
@@ -188,6 +189,8 @@ default
 			half_processes += [ _MASHING, _SPARGING ];
 			full_processes += [ _RESET, _INSTRUCTIONS, _MILLING, _MASH_REST, _LAUTERING, _BOILING, _CHILLING, _FERMENTING, _CLEARING, _SERVING ];
 			little_steam_processes = [ _RESET, _INSTRUCTIONS, _MASHING, _SPARGING, _RESET, _MILLING, _MASH_REST, _LAUTERING, _BOILING, _CHILLING, _FERMENTING, _CLEARING, _SERVING ];
+			big_steam_processes = [];
+			whirlpool_processes = [];
 		}
 		else
 		{
@@ -203,6 +206,8 @@ default
 		if (id == id) // make sure it's the brewery talking to us!
 		{
 			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + (string) id + " " + name);
+
+			// Level of tun contents ...
 			if (llListFindList(full_processes, (list) cmd) != -1)
 			{
 				llSetPos(starting_pos + _FULL_LVL);
@@ -215,6 +220,7 @@ default
 			{
 				llSetPos(starting_pos);
 			};
+			// Amount of Steam from contents
 			if (llListFindList(big_steam_processes, (list) cmd) != -1)
 			{
 				steam_on(TRUE);
@@ -226,7 +232,17 @@ default
 			else
 			{
 				steam_off();
+			};
+			// Whirlpool animation of contents
+			if (llListFindList(whirlpool_processes, (list) cmd) != -1)
+			{
+				llTargetOmega(<0.0, 0.0, 1.0>, PI_BY_TWO, 1.0);
 			}
+			else
+			{
+				llTargetOmega(ZERO_VECTOR, 0.0, 0.0);
+			}
+
 		}
 	}
 }

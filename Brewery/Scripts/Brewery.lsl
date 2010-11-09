@@ -23,18 +23,20 @@ string _MASH_REST = "Mash Rest";
 string _LAUTERING = "Lautering";
 string _SPARGING = "Sparging";
 string _BOILING = "Boiling";
+string _WHIRLPOOLING = "Whirlpool";
 string _CHILLING = "Chilling";
 string _FERMENTING = "Fermenting";
 string _CLEARING = "Clearing";
 string _SERVING = "Serving";
 
-string _INSTRUCTIONS_DESC = "Instructions\nPress RESTART to reset the brewery to it's initial view.\nPress NEXT to see the next brewing step.\nPress PREV to review the previous step.\nPress DETAILS for detailed instructions in a Notecard.\nYou may want to stand on the walkways for a better view inside the tuns.";
+string _INSTRUCTIONS_DESC = "Instructions\nPress RESET to reset the brewery to it's initial view.\nPress NEXT to see the next brewing step.\nPress PREV to review the previous step.\nPress DETAILS for detailed information in a Notecard.\nYou may want to stand on the walkways for a better view inside the tuns.";
 string _MILLING_DESC = "Milling\nMalted grain (mostly barley, but also wheat, rye, oats, corn or others may be used) are cracked to expose the kernel and put in the mash tun.  Different types and roasts of grain contribute the various flavours and colours to beer.";
-string _MASHING_DESC = "Mashing\nHot water is added to the Mash Tun in order to set the Mash to specific temperature.";
+string _MASHING_DESC = "Mashing\nHot water is added to the Mash Tun in order to set the wet grain (called the Mash) to specific temperature.";
 string _MASH_REST_DESC = "Mash Rest\nThe Mash sits at specific rest temperature/s for various periods of time.  Different enzymes work during these these rests to break down starches in the grain to sugars.";
-string _LAUTERING_DESC = "Lautering\nThe 'sweet liquor' (first runnings) is run off ('Lautered') from the Mash.";
+string _LAUTERING_DESC = "Lautering\nThe 'sweet liquor' (first runnings) is run off ('Lautered') from the Mash and into the Kettle.";
 string _SPARGING_DESC = "Sparging\nThe remaining grain bed is rinsed ('Sparged') of the sugars it contains using hot water (the second runnings).";
 string _BOILING_DESC = "Boiling\nThe Sweet liquor is boilied for 1 or more hours to flavour, colour and sterilise the wort.  Hops are added during this phase to add bitterness and seasoning.";
+string _WHIRLPOOLING_DESC = "Whirlpooling\nThe boiled wort is whirlpooled to draw solid matter into the middle and help clarify the wort.  Hops are sometimes added at this step to add aroma and some flavour with minimal bitterness impact.";
 string _CHILLING_DESC = "Chilling\nAt the completion of the boil the wort is rapidly chilled and transferred to the fermentation tanks in preparation for addition of the yeast.";
 string _FERMENTING_DESC = "Fermentation\nYeast is added to the wort (officially making it 'beer') and these creatures digest most of the sugars in the beer and produce alcohol, carbon dioxide and other flavouring compounds.";
 string _CLEARING_DESC = "Clearing\nMany, but not all, beers are racked to a 'Bright Tank' for further clarification prior to serving.  Breweries with bottling/kegging lines may instead filter at this stage, but again many beers are unfiltered.";
@@ -43,6 +45,7 @@ string _SERVING_DESC = "Serving\nHere in the brew pub we serve from the Bright T
 integer _MENU_CHAN = 6901;
 integer _MT_CHAN = 6902;
 integer _KT_CHAN = 6903;
+integer _HLT_CHAN = 6904;
 
 //End Header.ins
 
@@ -62,8 +65,8 @@ my_init()
 	// my_init is called once only at default state entry
 	
 	// you cannot initiate list contents in global space, so initialise them here
-	processes += [ _INSTRUCTIONS, _MILLING, _MASHING, _MASH_REST, _LAUTERING, _SPARGING, _BOILING, _CHILLING, _FERMENTING, _CLEARING, _SERVING ];
-	process_descs += [_INSTRUCTIONS_DESC, _MILLING_DESC, _MASHING_DESC, _MASH_REST_DESC, _LAUTERING_DESC, _SPARGING_DESC, _BOILING_DESC, _CHILLING_DESC, _FERMENTING_DESC, _CLEARING_DESC, _SERVING_DESC];
+	processes += [ _INSTRUCTIONS, _MILLING, _MASHING, _MASH_REST, _LAUTERING, _SPARGING, _BOILING, _WHIRLPOOLING, _CHILLING, _FERMENTING, _CLEARING, _SERVING ];
+	process_descs += [_INSTRUCTIONS_DESC, _MILLING_DESC, _MASHING_DESC, _MASH_REST_DESC, _LAUTERING_DESC, _SPARGING_DESC, _BOILING_DESC, _WHIRLPOOLING_DESC, _CHILLING_DESC, _FERMENTING_DESC, _CLEARING_DESC, _SERVING_DESC];
 
 	menu_first += [ _RESET, _STOP, _NEXT, _DETAILS ];
 	menu_normal += [ _RESET, _PREV, _NEXT, _DETAILS ];
@@ -77,7 +80,8 @@ my_reset()
 	// some objects are not linked as we require them to move so we communicate via chat with them
 	llSay(_MT_CHAN,_RESET);
 	llSay(_KT_CHAN,_RESET);
-	
+	llSay(_HLT_CHAN,_RESET);
+		
 	llResetScript();
 	// [TODO: does llResetScript set user back to NULL_KEY ??  If not insert code here to do it]
 	// [TODO: Ditto does it turn the timer off? ]
@@ -117,12 +121,10 @@ default
 		// and if it's necessary, then do I not also need to tell unattached objects
 		llSay(_MT_CHAN, llList2String(processes,current_process));
 		llSay(_KT_CHAN, llList2String(processes,current_process));
+		llSay(_HLT_CHAN, llList2String(processes,current_process));
 
 		// [TODO: use the Name or Id param here to only listen to chat from myself? ]
 		llListen(_MENU_CHAN, "", "", "");
-		
-		// [TODO: can't show dialog to NULL_USER? redundant code ]
-		//		my_show_dialog(user);
 	}
 
 	touch_start(integer total_number)
@@ -184,6 +186,7 @@ default
 		llMessageLinked(LINK_ALL_OTHERS, current_process, llList2String(processes,current_process), user_key);
 		llSay(_MT_CHAN, llList2String(processes,current_process));
 		llSay(_KT_CHAN, llList2String(processes,current_process));
+		llSay(_HLT_CHAN, llList2String(processes,current_process));
 
 		// give user 5 more minutes to use then reset to allow next user
 		llSetTimerEvent(300.0);
