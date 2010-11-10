@@ -1,0 +1,38 @@
+<Project name="Brewery" guid="67c39b46-b007-4d36-b792-450fc7ee35dd">
+	<Object name="Objects" guid="1a5cd82e-d1f5-42d8-a55c-5ec25a90b958" active="true">
+		<Unknown name="brewery.xml" guid="cb5a583b-bfa8-495c-b191-6933a5220b27">
+		</Unknown>
+	</Object>
+	<Object name="Scripts" guid="745219a8-c47e-4ba3-b081-7d74b2fb9f7d">
+		<Script name="!Animate Brewery.lsl" guid="5c9bb420-b053-44b6-a5c5-7deafb751a3c">
+		</Script>
+		<Script name="Animate Chiller Circuit.lsl" guid="be9cd189-0207-4637-9d61-8d54b43b2849">
+		</Script>
+		<Script name="Animate Grain Mill.lsl" guid="c2a462a5-f1ba-4f10-92cd-3b1da2202b04">
+		</Script>
+		<Script name="Animate HLT Lid.lsl" guid="9f12b4b7-492e-4615-9b5b-d68acdf3f853">
+		</Script>
+		<Script name="Animate Kettle Lid.lsl" guid="4e83da2e-6a9e-4fdf-b6d3-bc3331e8ab61">
+		</Script>
+		<Script name="Animate Mash High Contents.lsl" guid="16e837b5-9467-47a2-87e4-bd0ff68a8fec">
+		</Script>
+		<Script name="Animate MT Lid.lsl" guid="4563aa65-2106-43e4-9164-99164c4d7831">
+		</Script>
+		<Script name="Animate Pump Assembly 1.lsl" guid="e3fc951d-7394-490f-b88a-b9a3a1d997fa">
+		</Script>
+		<Script name="Animate Pump Assembly 2.lsl" guid="acab6bfb-e14e-4c15-8a50-7db8813d836e">
+		</Script>
+		<Script name="Animate Tun Contents.lsl" guid="c0b3142c-cf3e-4e1e-8894-7f3d51024b47">
+		</Script>
+		<Script name="Header.ins" guid="98c05c50-c68b-4b61-aa9c-140eb740b57b">
+		</Script>
+		<Script name="HLT Steam.lsl" guid="1b3b4d13-0432-4dff-a865-17d5cceac95a">
+		</Script>
+		<Script name="Lable Tun.lsl" guid="a381238e-e378-422b-b49e-d83579c15298">
+		</Script>
+		<Script name="Animate Tun Lid.lsl" guid="db45e515-97b2-49f6-89bf-3cc55ddddc67">
+		</Script>
+	</Object>
+	<Object name="Textures" guid="e601afb5-8afe-45b3-8cdf-0659e4a5889b">
+	</Object>
+</Project>
