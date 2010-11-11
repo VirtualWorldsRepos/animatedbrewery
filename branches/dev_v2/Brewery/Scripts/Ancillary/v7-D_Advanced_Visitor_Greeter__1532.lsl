@@ -1,3 +1,6 @@
+// $Id$
+// 20101111 kim Added Landmark to stuff given to a new person
+//
 ////////////////////////////////////////////////////////////////////
 // Please leave any credits intact in any script you use or publish.
 // Please contribute your changes to the Internet Script Library at
@@ -57,6 +60,7 @@ my_message(string name, key id)
 
 	llInstantMessage(id, "Please join our group at secondlife:///app/group/" + (string) group_id + "/about");
 	llGiveInventory(id, "Welcome Card");
+	llGiveInventory(id, "Second Runnings Brewery and Bar LM");
 }
 
 default{
