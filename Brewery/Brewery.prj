@@ -1,38 +1,62 @@
 <Project name="Brewery" guid="67c39b46-b007-4d36-b792-450fc7ee35dd">
 	<Object name="Objects" guid="1a5cd82e-d1f5-42d8-a55c-5ec25a90b958" active="true">
-		<Unknown name="brewery.xml" guid="cb5a583b-bfa8-495c-b191-6933a5220b27">
+		<Unknown name="AdBoard.xml" guid="5f340ae6-8e25-4e41-8485-6d55d116d006">
+		</Unknown>
+		<Unknown name="brewery.xml" guid="eaf908e4-bac8-4f39-9117-041a3f21cad2">
+		</Unknown>
+		<Unknown name="BreweryRollerDoor.xml" guid="00cd4c63-aff2-4e03-8b64-ad842bdca4c3">
+		</Unknown>
+		<Unknown name="BrightTanks.xml" guid="de3b9232-b01a-418b-861d-76b28d303627">
+		</Unknown>
+		<Unknown name="Fermenters.xml" guid="2e255f0c-e11d-4c68-ab3c-6dc74f8635fa">
+		</Unknown>
+		<Unknown name="TipJar.xml" guid="57a2e2e1-8359-4142-956f-52a20fced141">
+		</Unknown>
+		<Unknown name="ViewingStand.xml" guid="e4fa2a21-1937-43d2-acbd-f88be19fcc83">
+		</Unknown>
+		<Unknown name="WebSitesBoard.xml" guid="a5ed8e24-7627-403a-947d-91b1b224ddbe">
 		</Unknown>
 	</Object>
+	<Object name="Other" guid="795a041d-f46d-4225-a99e-8336c8168b47">
+		<Unknown name="Brewery Parts.xlsx" guid="e09dcbbf-d41f-4241-938e-cc5a83522a69">
+		</Unknown>
+		<Notecard name="Channel List.txt" guid="eec254d4-3140-49c2-88a8-860024a7506f">
+		</Notecard>
+	</Object>
 	<Object name="Scripts" guid="745219a8-c47e-4ba3-b081-7d74b2fb9f7d">
-		<Script name="!Animate Brewery.lsl" guid="5c9bb420-b053-44b6-a5c5-7deafb751a3c">
+		<Object name="Ancillary" guid="8c2025c2-23d6-4fa5-973a-ed6fc270ba2b">
+			<Script name="advertisingboard.lsl" guid="b4a66b3a-2b05-4a5b-8dea-bd3af80d4f44">
+			</Script>
+			<Script name="garage_door.lsl" guid="73077eab-9b39-42e5-b51b-d6d1350b0b8a">
+			</Script>
+			<Script name="OnlineIndicator_139.lsl" guid="0e77ab8f-2d29-47e1-b39e-b92ec52e4ad2">
+			</Script>
+			<Script name="v7-D_Advanced_Visitor_Greeter__1532.lsl" guid="d860a61e-3422-4701-b19a-907f091b518c">
+			</Script>
+		</Object>
+		<Script name="Brewery.lsl" guid="691ae8c5-e5af-478a-bc4a-5cd9aadda765">
 		</Script>
-		<Script name="Animate Chiller Circuit.lsl" guid="be9cd189-0207-4637-9d61-8d54b43b2849">
+		<Script name="Chiller Circuit.lsl" guid="bf5302e2-72a8-412f-957b-fe1d494f6cab">
 		</Script>
-		<Script name="Animate Grain Mill.lsl" guid="c2a462a5-f1ba-4f10-92cd-3b1da2202b04">
-		</Script>
-		<Script name="Animate HLT Lid.lsl" guid="9f12b4b7-492e-4615-9b5b-d68acdf3f853">
-		</Script>
-		<Script name="Animate Kettle Lid.lsl" guid="4e83da2e-6a9e-4fdf-b6d3-bc3331e8ab61">
-		</Script>
-		<Script name="Animate Mash High Contents.lsl" guid="16e837b5-9467-47a2-87e4-bd0ff68a8fec">
-		</Script>
-		<Script name="Animate MT Lid.lsl" guid="4563aa65-2106-43e4-9164-99164c4d7831">
-		</Script>
-		<Script name="Animate Pump Assembly 1.lsl" guid="e3fc951d-7394-490f-b88a-b9a3a1d997fa">
-		</Script>
-		<Script name="Animate Pump Assembly 2.lsl" guid="acab6bfb-e14e-4c15-8a50-7db8813d836e">
-		</Script>
-		<Script name="Animate Tun Contents.lsl" guid="c0b3142c-cf3e-4e1e-8894-7f3d51024b47">
+		<Script name="Grain Mill.lsl" guid="a15fc93a-124b-4555-b1c8-b39a738259ed">
 		</Script>
 		<Script name="Header.ins" guid="98c05c50-c68b-4b61-aa9c-140eb740b57b">
 		</Script>
-		<Script name="HLT Steam.lsl" guid="1b3b4d13-0432-4dff-a865-17d5cceac95a">
+		<Script name="Lable Object from Desc.lsl" guid="f636c01e-36a7-4b50-9f00-8b7e506b16d0">
 		</Script>
-		<Script name="Lable Tun.lsl" guid="a381238e-e378-422b-b49e-d83579c15298">
+		<Script name="Pump Assembly 1.lsl" guid="80d8d21f-ff9e-44ce-9ffd-275a9edbed97">
 		</Script>
-		<Script name="Animate Tun Lid.lsl" guid="db45e515-97b2-49f6-89bf-3cc55ddddc67">
+		<Script name="Pump Assembly 2.lsl" guid="ea7d7f5a-9aa5-469c-98d4-0a111f68b126">
+		</Script>
+		<Script name="Tun Contents.lsl" guid="3ba3acd3-be11-43ed-b6ad-7ade4eb8db87">
+		</Script>
+		<Script name="Tun Lid.lsl" guid="25d7e8b1-6a27-4fa5-b772-c96fb642f318">
 		</Script>
 	</Object>
 	<Object name="Textures" guid="e601afb5-8afe-45b3-8cdf-0659e4a5889b">
+		<Snapshot name="Building Facade.jpg" guid="c412f59a-a528-428d-a925-1c78d98323c3">
+		</Snapshot>
+		<Unknown name="Building Facade.xcf" guid="1a1d0717-acf2-4406-90f8-5ab6b1b5df51">
+		</Unknown>
 	</Object>
 </Project>
