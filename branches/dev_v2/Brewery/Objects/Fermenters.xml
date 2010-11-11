@@ -5,14 +5,14 @@
             <map>
             <key>group_body</key>
                 <map>
-                <key>650683317</key>
+                <key>651595292</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Object</string>
                     <key>parent</key>
-                        <string>650683321</string>
+                        <string>651595296</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
@@ -26,8 +26,8 @@
                     <key>rotation</key>
                         <array>
                             <real>0.70710670948028564</real>
-                            <real>-0</real>
-                            <real>0</real>
+                            <real>-2.3630061463109087e-008</real>
+                            <real>-2.9802322387695313e-008</real>
                             <real>0.70710688829421997</real>
                         </array>
                     <key>scale</key>
@@ -174,14 +174,14 @@
                             </map>
                         </map>
                     </map>
-                <key>650683318</key>
+                <key>651595293</key>
                     <map>
                     <key>description</key>
-                        <string />
+                        <string>Fermentation Tank</string>
                     <key>name</key>
                         <string>Object</string>
                     <key>parent</key>
-                        <string>650683321</string>
+                        <string>651595296</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
@@ -195,8 +195,8 @@
                     <key>rotation</key>
                         <array>
                             <real>-0.7071068286895752</real>
-                            <real>0</real>
-                            <real>0</real>
+                            <real>-2.9802322387695313e-008</real>
+                            <real>-2.9802325940408991e-008</real>
                             <real>0.70710670948028564</real>
                         </array>
                     <key>scale</key>
@@ -343,14 +343,14 @@
                             </map>
                         </map>
                     </map>
-                <key>650683319</key>
+                <key>651595294</key>
                     <map>
                     <key>description</key>
                         <string />
                     <key>name</key>
                         <string>Object</string>
                     <key>parent</key>
-                        <string>650683321</string>
+                        <string>651595296</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
@@ -364,8 +364,8 @@
                     <key>rotation</key>
                         <array>
                             <real>0.70710670948028564</real>
-                            <real>-0</real>
-                            <real>0</real>
+                            <real>-2.3630061463109087e-008</real>
+                            <real>-2.9802322387695313e-008</real>
                             <real>0.70710688829421997</real>
                         </array>
                     <key>scale</key>
@@ -512,14 +512,14 @@
                             </map>
                         </map>
                     </map>
-                <key>650683320</key>
+                <key>651595295</key>
                     <map>
                     <key>description</key>
-                        <string />
+                        <string>Fermentation Tank</string>
                     <key>name</key>
                         <string>Object</string>
                     <key>parent</key>
-                        <string>650683321</string>
+                        <string>651595296</string>
                     <key>phantom</key>
                         <integer>0</integer>
                     <key>physical</key>
@@ -533,8 +533,8 @@
                     <key>rotation</key>
                         <array>
                             <real>-0.7071068286895752</real>
-                            <real>0</real>
-                            <real>0</real>
+                            <real>-2.9802322387695313e-008</real>
+                            <real>-2.9802325940408991e-008</real>
                             <real>0.70710670948028564</real>
                         </array>
                     <key>scale</key>
@@ -681,10 +681,10 @@
                             </map>
                         </map>
                     </map>
-                <key>650683321</key>
+                <key>651595296</key>
                     <map>
                     <key>description</key>
-                        <string>(No Description)</string>
+                        <string>Fermentation Tank</string>
                     <key>name</key>
                         <string>Fermenters</string>
                     <key>phantom</key>
@@ -693,9 +693,9 @@
                         <integer>0</integer>
                     <key>position</key>
                         <array>
-                            <real>134.04681396484375</real>
-                            <real>52.589302062988281</real>
-                            <real>148.697509765625</real>
+                            <real>134.04780578613281</real>
+                            <real>53.307582855224609</real>
+                            <real>148.765380859375</real>
                         </array>
                     <key>rotation</key>
                         <array>
@@ -996,9 +996,9 @@
                 </map>
             <key>root_position</key>
                 <array>
-                    <real>134.04681396484375</real>
-                    <real>52.589302062988281</real>
-                    <real>148.697509765625</real>
+                    <real>134.04780578613281</real>
+                    <real>53.307582855224609</real>
+                    <real>148.765380859375</real>
                 </array>
             <key>root_rotation</key>
                 <array>
