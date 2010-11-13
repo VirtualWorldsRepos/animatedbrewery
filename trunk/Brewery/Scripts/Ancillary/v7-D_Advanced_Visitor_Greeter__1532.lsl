@@ -1,3 +1,8 @@
+// $Id$
+// 20101113 kim Sensor was firing spherical to 95.0m and upsetting neighbours
+//              Dropped to hemisphere inside building and 25.0m range
+//              Also we're meant to listen on channel 6905 so set that
+//
 ////////////////////////////////////////////////////////////////////
 // Please leave any credits intact in any script you use or publish.
 // Please contribute your changes to the Internet Script Library at
@@ -63,9 +68,9 @@ default{
 	state_entry(){
 		//-- Next Code Line Belongs To Dynamic Memory Limitation Section --//
 		gIntMax = 1000;                      //-- Intial list Max --//
-		llSensor( "", "", AGENT, 95.0, PI ); //-- Pre-Fire Sensor For Immediate Results --//
+		llSensor( "", "", AGENT, 15.0, PI_BY_TWO ); //-- Pre-Fire Sensor For Immediate Results --//
 		llSetTimerEvent( 30.0 );             //-- Sensor Repeat Frequency --//
-		llListen(101, "", llGetOwner(), "List");
+		llListen(6905, "", llGetOwner(), "List");
 	}
 
 	listen(integer channel, string name, key id, string message)
@@ -81,7 +86,7 @@ default{
 	}
 	
 	timer(){
-		llSensor( "", "", AGENT, 95.0, PI ); //-- Look For Avatars --//
+		llSensor( "", "", AGENT, 15.0, PI_BY_TWO ); //-- Look For Avatars --//
 	}
 
 	sensor( integer vIntTtl ){
