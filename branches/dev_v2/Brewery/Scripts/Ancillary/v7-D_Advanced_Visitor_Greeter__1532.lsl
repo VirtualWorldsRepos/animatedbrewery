@@ -1,4 +1,12 @@
 // $Id$
+// 20101115 kim Welcome an AV back to the brewery if they have been away > 10
+//              minutes.  Also use a Sensor repeat not a timer/Sensor combo.
+//              Tidy list output a little (do we even understand it I wonder?)
+// 20101114 kim Use touch not chat to get list
+// 20101113 kim Sensor was firing spherical to 95.0m and upsetting neighbours
+//              Dropped to hemisphere inside building and 15.0m range
+//              Also we're meant to listen on channel 6905 so set that
+//
 // 20101111 kim Added Landmark to stuff given to a new person
 //
 ////////////////////////////////////////////////////////////////////
@@ -58,7 +66,7 @@ my_message(string name, key id)
 {
 	key group_id = llList2String(llGetObjectDetails(llGetKey(), [OBJECT_GROUP]), 0);
 
-	llInstantMessage(id, "Please join our group at secondlife:///app/group/" + (string) group_id + "/about");
+	llInstantMessage(id, "Welcome the the Brewery\nPlease join our group at secondlife:///app/group/" + (string) group_id + "/about");
 	llGiveInventory(id, "Welcome Card");
 	llGiveInventory(id, "Second Runnings Brewery and Bar LM");
 }
@@ -67,27 +75,25 @@ default{
 	state_entry(){
 		//-- Next Code Line Belongs To Dynamic Memory Limitation Section --//
 		gIntMax = 1000;                      //-- Intial list Max --//
-		llSensor( "", "", AGENT, 95.0, PI ); //-- Pre-Fire Sensor For Immediate Results --//
-		llSetTimerEvent( 30.0 );             //-- Sensor Repeat Frequency --//
-		llListen(101, "", llGetOwner(), "List");
+		llSensor( "", "", AGENT, 15.0, PI_BY_TWO ); //-- Pre-Fire Sensor For Immediate Results --//
+		llSensorRepeat("", "", AGENT, 15.0, PI_BY_TWO, 30.0);
 	}
 
-	listen(integer channel, string name, key id, string message)
+	touch_start(integer touchers)
 	{
 		integer end = llGetListLength(gLstAvs);
 
-		while (end--)
+		if (llDetectedKey(0) == llGetOwner())
 		{
-			llOwnerSay((string) llGetUnixTime());
-			llOwnerSay(llKey2Name(llList2String(gLstAvs, end)) + " " + (string) ((llGetUnixTime() - llList2Integer(gLstTms, end) + gIntPrd)/60));
-			llOwnerSay(llKey2Name(llList2String(gLstAvs, end)) + " " + (string) llList2Integer(gLstTms, end));
+			llOwnerSay("Unix Time is now " + (string) vIntNow);
+			while (end--)
+			{
+				llOwnerSay(llKey2Name(llList2String(gLstAvs, end)) + " " + (string) ((llGetUnixTime() - llList2Integer(gLstTms, end) + gIntPrd)/60));
+				llOwnerSay(llKey2Name(llList2String(gLstAvs, end)) + " " + (string) llList2Integer(gLstTms, end));
+			}
 		}
 	}
 	
-	timer(){
-		llSensor( "", "", AGENT, 95.0, PI ); //-- Look For Avatars --//
-	}
-
 	sensor( integer vIntTtl ){
 		//-- Save Current Timer to Now, Then Add Period and Save To Timeout--//
 		vLstTmt = (list)(gIntPrd + (vIntNow = llGetUnixTime()));
@@ -95,6 +101,11 @@ default{
 		@Building;{
 			//-- Is This Av Already In Our List? --//
 			if (~(vIdxLst = llListFindList( gLstAvs, (vLstChk = (list)llDetectedKey( --vIntTtl )) ))){
+				// if last time > 10 minutes, then welcome back
+				if (( vIntNow - (integer) llList2Integer(gLstTms, vIdxLst)) > 600)
+				{
+					llInstantMessage((string) vLstChk, "Welcome back to the brewery " + llDetectedName( vIntTtl ) );
+				}
 				//-- Delete The Old Entries & Add New Entries to Preserve Order --//
 				gLstAvs = llDeleteSubList(  gLstAvs, vIdxLst, vIdxLst ) + vLstChk;
 				//-- Next Code Line Belongs to Av Culling Section --//
