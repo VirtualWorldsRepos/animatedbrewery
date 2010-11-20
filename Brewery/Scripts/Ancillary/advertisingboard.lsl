@@ -3,23 +3,24 @@
 //
 // constants
 float _TIME_DELAY = 15.0;
-integer running = TRUE;
 
 // What sequence do we want to show ads in?
-integer _RANDOM = 0;
-integer _SEQ = 1;
-integer mode = _RANDOM;
+integer _SEQ = 0;
+integer _RANDOM = 1;
+integer _STOP = 2;
+// default is _SEQ
+integer mode = _SEQ;
 
 integer n;
 integer current;
 string  txtr;
+string  notecard_name;
 
 default
 {
 	state_entry()
 	{
 		llSetTimerEvent(_TIME_DELAY);
-		llListen(6907, "", llGetOwner(), "");
 		n = llGetInventoryNumber(INVENTORY_TEXTURE);
 		current = n - 1;
 	}
@@ -37,21 +38,21 @@ default
 				current = n - 1;
 			}
 		}
-			
+		else
+		{
+			llOwnerSay("Unexpected mode " + (string) mode);
+		}
+
 		txtr = llGetInventoryName(INVENTORY_TEXTURE, current);
 		llSetTexture(txtr, 0);
-	}
 
-	listen(integer channel, string name, key id, string message)
-	{
-		if (message == "random")
+		notecard_name = "NC_" + txtr;
+		llSetText("Touch for a Notecard from this vendor", <1.0, 0.0, 0.0>, 0.5);
+
+		if (!~llGetInventoryType(notecard_name))
 		{
-			mode = _RANDOM;
-		}
-		else if (message == "seq")
-		{
-			mode = _SEQ;
-			current = n - 1;
+			notecard_name = "";
+			llSetText("", <1.0, 0.0, 0.0>, 1.0);
 		}
 	}
 
@@ -59,24 +60,30 @@ default
 	{
 		if (llDetectedKey(0) == llGetOwner())
 		{
-			if (running)
+			if (++mode > _STOP)
+			{
+				mode = 0;
+			}
+
+			if (mode == _STOP)
 			{
 				llSetTimerEvent(0);
 				llSetText("Stopped", <1.0, 0.0, 0.0>, 1.0);
-				running = FALSE;
 			}
 			else
 			{
 				llSetTimerEvent(_TIME_DELAY);
 				llSetText("", <1.0, 0.0, 0.0>, 1.0);
-				running = TRUE;
 			}
 		}
 		else
 		{
-			while (a--)
+			if (notecard_name)
 			{
-				llGiveInventory(llDetectedKey(a), "NC_" + txtr);
+				while (a--)
+				{
+					llGiveInventory(llDetectedKey(a), notecard_name);
+				}
 			}
 		}
 	}

@@ -92,11 +92,11 @@ steam_on(integer big)
 {
 	if (big)
 	{
-		age = 10;
+		age = 20;
 	}
 	else
 	{
-		age = 3;
+		age = 6;
 	}
 	
     flags = 0;
@@ -180,7 +180,7 @@ default
 			half_processes += [ _LAUTERING ];
 			full_processes += [ _SPARGING, _BOILING, _WHIRLPOOLING, _CHILLING ];
 			big_steam_processes += [ _BOILING ];
-			little_steam_processes = [ _LAUTERING, _SPARGING ];
+			little_steam_processes = [ _LAUTERING, _SPARGING, _WHIRLPOOLING ];
 			whirlpool_processes = [_WHIRLPOOLING];
 		}
 		else if (my_name == _HOTL)
