@@ -1,4 +1,5 @@
-//!Animate Brewwery.lsl
+// $Id$
+//!Animate Brewery.lsl
 // Brewery Controller
 //
 // Written by Kim Minuet, October 2010
@@ -137,6 +138,7 @@ default
 			user_key = llDetectedKey(0);
 			user_name = llDetectedName(0);
 			llSay(0,user_name + " is now operating the Brewery.  If they are idle for 5 minutes the Brewery will reset for the next user.");
+			llSetText(user_name + " is now operating the Brewery.", <1.0, 0.0, 0.0>, 0.25);
 			
 			// give user 5 minutes to use then reset to allow next user
 			llSetTimerEvent(300.0);
@@ -196,6 +198,7 @@ default
 	timer()
 	{
 		llSay(0, "It has been 5 minutes since " + user_name + " has interacted with the Brewery.  Now resetting for others' use.");
+		llSetText("",<1.0, 0.0, 0.0>, 1.0);
 		// if timer event triggers it means the brewery operator has been idle for 5 minutes ... reset
 		my_reset();
 		// [TODO: or, did we want to just "STOP" here ]
