@@ -1,4 +1,5 @@
 // $Id: v7-D_Advanced_Visitor_Greeter__1532.lsl 26 2010-11-15 23:57:00Z kimminuet@hotmail.com $
+// 20101122 kim Email me when a new or returning av is identified.
 // 20101115 kim Welcome an AV back to the brewery if they have been away > 10
 //              minutes.  Also use a Sensor repeat not a timer/Sensor combo.
 //              Tidy list output a little (do we even understand it I wonder?)
@@ -105,6 +106,7 @@ default{
 				if (( vIntNow - (integer) llList2Integer(gLstTms, vIdxLst)) > 600)
 				{
 					llInstantMessage((string) vLstChk, "Welcome back to the brewery " + llDetectedName( vIntTtl ) );
+					llEmail("kimminuet@hotmail.com","Brewery Visitor",llDetectedName( vIntTtl ) + " has returned to the brewery.");
 				}
 				//-- Delete The Old Entries & Add New Entries to Preserve Order --//
 				gLstAvs = llDeleteSubList(  gLstAvs, vIdxLst, vIdxLst ) + vLstChk;
@@ -114,6 +116,7 @@ default{
 			else{
 				//-- Oo Goody, Hi New Av! Add Them To The Lists & Preserve Max List Size--//
 				llInstantMessage( (string)vLstChk, "Hello " + llDetectedName( vIntTtl ) );
+				llEmail("kimminuet@hotmail.com","Brewery Visitor",llDetectedName( vIntTtl ) + " has visited the brewery.");
 				my_message(llDetectedName( vIntTtl ), llDetectedKey( vIntTtl));
 				gLstAvs = llList2List(  vLstChk + gLstAvs, 0, gIntMax );
 				//-- Next Code Line Belongs to Av Culling Section --//
