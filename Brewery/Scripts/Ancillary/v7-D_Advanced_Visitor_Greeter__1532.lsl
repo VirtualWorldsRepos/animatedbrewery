@@ -1,5 +1,6 @@
 // $Id: v7-D_Advanced_Visitor_Greeter__1532.lsl 26 2010-11-15 23:57:00Z kimminuet@hotmail.com $
-// 20101122 kim Email me when a new or returning av is identified.
+// 20101122 kim Add list of names as keys do not translate to names easily
+// 20101121 kim Email me when a new or returning av is identified.
 // 20101115 kim Welcome an AV back to the brewery if they have been away > 10
 //              minutes.  Also use a Sensor repeat not a timer/Sensor combo.
 //              Tidy list output a little (do we even understand it I wonder?)
@@ -47,6 +48,7 @@
 //
 
 list    gLstAvs;        //-- List Of Avatars Keys Greeted --//
+list	gLstNam;		//-- List of Avatars Names Greeted --//
 list    vLstChk;        //-- List Of Av Key Being Checked During Sensor Processing --//
 integer vIdxLst;        //-- Index Of Checked Item In List (reused) --//
 integer gIntMax = 500;  //-- Maximum Number of Names To Store --//
@@ -89,8 +91,8 @@ default{
 			llOwnerSay("Unix Time is now " + (string) vIntNow);
 			while (end--)
 			{
-				llOwnerSay(llKey2Name(llList2String(gLstAvs, end)) + " " + (string) ((llGetUnixTime() - llList2Integer(gLstTms, end) + gIntPrd)/60));
-				llOwnerSay(llKey2Name(llList2String(gLstAvs, end)) + " " + (string) llList2Integer(gLstTms, end));
+				llOwnerSay(llList2String(gLstNam, end) + " " + (string) ((llGetUnixTime() - llList2Integer(gLstTms, end) + gIntPrd)/60));
+				llOwnerSay(llList2String(gLstAvs, end) + " " + (string) llList2Integer(gLstTms, end));
 			}
 		}
 	}
@@ -119,6 +121,7 @@ default{
 				llEmail("kimminuet@hotmail.com","Brewery Visitor",llDetectedName( vIntTtl ) + " has visited the brewery.");
 				my_message(llDetectedName( vIntTtl ), llDetectedKey( vIntTtl));
 				gLstAvs = llList2List(  vLstChk + gLstAvs, 0, gIntMax );
+				gLstNam = llList2List(  (list) llDetectedName( vIntTtl ) + gLstNam, 0, gIntMax);
 				//-- Next Code Line Belongs to Av Culling Section --//
 				gLstTms = llList2List(  vLstTmt + gLstTms, 0, gIntMax );
 			}
@@ -144,6 +147,7 @@ default{
 				@TheirBones; if (--vIdxLst) if (vIntNow > llList2Integer( gLstTms, vIdxLst )) jump TheirBones;
 				//-- Thin the herd --//
 				gLstAvs = llList2List(  gLstAvs, 0, vIdxLst );
+				gLstNam = llList2List(  gLstNam, 0, vIdxLst );
 				gLstTms = llList2List(  gLstTms, 0, vIdxLst );
 			}
 		}
