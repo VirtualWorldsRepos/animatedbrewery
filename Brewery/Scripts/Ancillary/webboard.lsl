@@ -1,4 +1,4 @@
-// $Id $
+// $Id$
 // 20101122 kim Webboard.lsl read a notcard of websites and display, allow user to scroll between them ...
 integer locked = TRUE;
 integer    _WEB_CHAN = 6907;
