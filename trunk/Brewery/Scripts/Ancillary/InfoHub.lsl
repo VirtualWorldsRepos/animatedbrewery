@@ -1,5 +1,4 @@
-// www.lsleditor.org  by Alphons van der Heijden (SL: Alphons Jano)
-
+// $Id$
 integer _INFO_CHAN = 6907;
 list menu_choices = [ "Landmark", "Freebies", "Package Deal", "Run Brewery", "Page Kim", "Join Group", "Welcome Card" ];
 

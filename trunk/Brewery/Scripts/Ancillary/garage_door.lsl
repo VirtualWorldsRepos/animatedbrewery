@@ -1,3 +1,4 @@
+// $Id$
 default
 {
 	state_entry()

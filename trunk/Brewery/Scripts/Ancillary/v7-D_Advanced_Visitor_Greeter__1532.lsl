@@ -1,4 +1,4 @@
-// $Id: v7-D_Advanced_Visitor_Greeter__1532.lsl 26 2010-11-15 23:57:00Z kimminuet@hotmail.com $
+// $Id$
 // 20101122 kim Add list of names as keys do not translate to names easily
 // 20101121 kim Email me when a new or returning av is identified.
 // 20101115 kim Welcome an AV back to the brewery if they have been away > 10

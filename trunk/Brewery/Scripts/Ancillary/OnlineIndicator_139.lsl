@@ -1,3 +1,4 @@
+// $Id$
 ////////////////////////////////////////////////////////////////////
 // Please leave any credits intact in any script you use or publish.
 // Please contribute your changes to the Internet Script Library at

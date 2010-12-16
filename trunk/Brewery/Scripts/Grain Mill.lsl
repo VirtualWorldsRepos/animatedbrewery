@@ -1,3 +1,4 @@
+// $Id$
 //Header.ins
 //Constants
 string _INIT = "INIT";

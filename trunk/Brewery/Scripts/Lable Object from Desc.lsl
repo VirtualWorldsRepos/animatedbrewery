@@ -1,3 +1,4 @@
+// $Id$
 // www.lsleditor.org  by Alphons van der Heijden (SL: Alphons Jano)
 default
 {
