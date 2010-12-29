@@ -1,4 +1,6 @@
 // $Id$
+// 20101220 kim Add demo mode.
+//
 //!Animate Brewery.lsl
 // Brewery Controller
 //
@@ -16,6 +18,8 @@ string _NEXT = "NEXT";
 string _PREV = "PREV";
 string _RESET = "RESET";
 string _DETAILS = "DETAILS";
+string _DEMO_ON = "DEMO ON";
+string _DEMO_OFF = "DEMO OFF";
 
 string _INSTRUCTIONS = "Instructions";
 string _MILLING = "Milling";
@@ -61,6 +65,12 @@ list menu_first = [];
 list menu_normal = [];
 list menu_last = [];
 
+// 5 minute (300 second) countdown for a user to control the brewery
+integer user_timer = 300;
+//in demo mode 30 seconds per step;
+integer	demo_timer = 30;
+integer demo_interupted = FALSE;
+
 my_init()
 {
 	// my_init is called once only at default state entry
@@ -72,6 +82,7 @@ my_init()
 	menu_first += [ _RESET, _STOP, _NEXT, _DETAILS ];
 	menu_normal += [ _RESET, _PREV, _NEXT, _DETAILS ];
 	menu_last += [ _RESET, _PREV, _STOP, _DETAILS ];
+	llSetTimerEvent(demo_timer);
 }
 
 my_reset()
@@ -82,8 +93,26 @@ my_reset()
 	llSay(_MT_CHAN,_RESET);
 	llSay(_KT_CHAN,_RESET);
 	llSay(_HLT_CHAN,_RESET);
+
+	if (demo_interupted)
+	{
+		llOwnerSay("Setting Demo Mode ON");
+		llSetText("The Brewery is currently operating in automated demonstration mode\nTouch the brewery to run it interactively", <1.0, 0.0, 0.0>, 0.25);
+		user_name = "Demo Mode";
+		user_key = llGetOwner();
+		current_process = 1;
+
+		message_all_links();
+
+		// give user 5 more minutes to use then reset to allow next user
+		user_timer = 300;
 		
-	llResetScript();
+		my_show_dialog(user_key);
+	}
+	else
+	{
+		llResetScript();
+	}
 	// [TODO: does llResetScript set user back to NULL_KEY ??  If not insert code here to do it]
 	// [TODO: Ditto does it turn the timer off? ]
 	// user_key = NULL_KEY;
@@ -111,6 +140,15 @@ my_show_dialog(key id)
 	}
 }
 
+message_all_links()
+{
+		// now instruct all linked (and related unlinked) objects of process change
+		llMessageLinked(LINK_ALL_OTHERS, current_process, llList2String(processes,current_process), user_key);
+		llSay(_MT_CHAN, llList2String(processes,current_process));
+		llSay(_KT_CHAN, llList2String(processes,current_process));
+		llSay(_HLT_CHAN, llList2String(processes,current_process));
+}
+
 default
 {
 	state_entry ()
@@ -132,8 +170,13 @@ default
 	{
 		integer toucher;
 		
-		if (user_key == NULL_KEY)
+		if (user_key == NULL_KEY || user_name == "Demo Mode")
 		{
+			if (user_name == "Demo Mode")
+			{
+				demo_interupted = TRUE;
+				llOwnerSay("Auto Demo mode interupted by " + llDetectedName(0));
+			}
 			// first user touching takes control of the brewery
 			user_key = llDetectedKey(0);
 			user_name = llDetectedName(0);
@@ -141,8 +184,9 @@ default
 			llSetText(user_name + " is now operating the Brewery.", <1.0, 0.0, 0.0>, 0.25);
 			
 			// give user 5 minutes to use then reset to allow next user
-			llSetTimerEvent(300.0);
-
+			user_timer = 300;
+			// start them from the intro menu
+			current_process = 0;
 			// now give them the control menu
 			my_show_dialog(user_key);
 		}
@@ -150,9 +194,9 @@ default
 		{
 			// inform subsequent touchers brewery is in use ...
 			// [TODO: maybe look and see if user still in brewery and if not reset here? ]
-			for (toucher = 1;toucher < total_number;toucher++)
+			for (toucher = 0;toucher < total_number;toucher++)
 			{
-				llInstantMessage(llDetectedKey(toucher), "The brewery is currently in use by " + user_name + ".  Please wait for them to finish and then try again.");
+				llInstantMessage(llDetectedKey(toucher), "The brewery is currently in use by " + user_name + ".  They have " + (string) (user_timer / 60) + " minutes and " + (string) (user_timer % 60) + " seconds left. Please wait for them to finish and then try again.");
 			}
 		}
 	}
@@ -183,24 +227,56 @@ default
 		{
 			llGiveInventory(user_key, llList2String(processes, current_process));
 		}
+		else if (message == _DEMO_ON && id == llGetOwner())
+		{
+			llOwnerSay("Setting Demo Mode ON");
+			llSetText("The Brewery is currently operating in automated demonstration mode\nTouch the brewery to run it interactively", <1.0, 0.0, 0.0>, 0.25);
+			user_name = "Demo Mode";
+			user_key = llGetOwner();
+			current_process = 0;
+		}
+		else if (message == _DEMO_OFF)
+		{
+			llOwnerSay("Setting Demo Mode OFF");
+			llSetText("The Brewery is currently idle\nTouch the brewery to run it interactively", <1.0, 0.0, 0.0>, 0.25);
+			user_name = "";
+			user_key = NULL_KEY;
+			current_process = 0;
+		}
 
-		// now instruct all linked (and related unlinked) objects of process change
-		llMessageLinked(LINK_ALL_OTHERS, current_process, llList2String(processes,current_process), user_key);
-		llSay(_MT_CHAN, llList2String(processes,current_process));
-		llSay(_KT_CHAN, llList2String(processes,current_process));
-		llSay(_HLT_CHAN, llList2String(processes,current_process));
+		message_all_links();
 
 		// give user 5 more minutes to use then reset to allow next user
-		llSetTimerEvent(300.0);
+		user_timer = 300;
+		
 		my_show_dialog(user_key);
 	}
 
 	timer()
 	{
-		llSay(0, "It has been 5 minutes since " + user_name + " has interacted with the Brewery.  Now resetting for others' use.");
-		llSetText("",<1.0, 0.0, 0.0>, 1.0);
-		// if timer event triggers it means the brewery operator has been idle for 5 minutes ... reset
-		my_reset();
-		// [TODO: or, did we want to just "STOP" here ]
+		// if we're in demo mode mode to next step
+		if (user_name == "Demo Mode")
+		{
+			if (current_process++ >= llGetListLength(processes) - 1)
+			{
+				current_process = 1;
+			}
+			message_all_links();
+			llSay(0, "Brewing Demo, " + llList2String(processes, current_process));
+			llSetText("The Brewery is currently operating in automated demonstration mode in the " + llList2String(processes, current_process) + " step.\nTouch the brewery to run it interactively", <1.0, 0.0, 0.0>, 0.25);
+		}
+		//else if a user is in control, decrement their time left and reset if past
+		else if (user_name)
+		{
+			user_timer-=demo_timer;
+			if (user_timer < 0)
+			{
+				llSay(0, "It has been 5 minutes since " + user_name + " has interacted with the Brewery.  Now resetting for others' use.");
+				llSetText("",<1.0, 0.0, 0.0>, 1.0);
+				// if timer event triggers it means the brewery operator has been idle for 5 minutes ... reset
+				my_reset();
+				// [TODO: or, did we want to just "STOP" here ]
+			}
+		}
 	}
 }
