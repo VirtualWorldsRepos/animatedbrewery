@@ -38,6 +38,10 @@
 //
 // http://www.heatonresearch.com/articles/series/22/
 
+integer _INFO_CHAN = 6907;
+list user_menu = [ "Landmark", "Freebies", "Package Deal", "Run Brewery", "Page Kim", "Join Group", "Welcome Card" ];
+list admin_menu = [ "Landmark", "Freebies", "Package Deal", "Run Brewery", "Page Kim", "Join Group", "Welcome Card", "Availability" ];
+
 string name = "";
 string last_online = "";
 key nameKey = NULL_KEY;
@@ -88,16 +92,20 @@ default
 
 	state_entry()
 	{
-//		llSetText("Online Detector\nTouch to Claim",<1,1,1>,1);
+		//        llSetText("Online Detector\nTouch to Claim",<1,1,1>,1);
 		nameKey = llGetOwner();
 		name = llKey2Name(nameKey);
 		llSetText(name + "\nSetting up...",<1,1,1>,1);
+		llRequestAgentData(nameKey,DATA_ONLINE);
+		llTargetOmega(<0.0, 0.0, 1.0>, PI_BY_TWO, 1.0);
+		llListen(_INFO_CHAN, "", "", "");
 		llSetTimerEvent(60.0);
-		llTargetOmega(<0.0, 1.0, 1.0>, PI_BY_TWO, 1.0); 
 	}
 
+	//TODO: this is lazy, change to cater for multiple touchers ...
 	touch_start(integer total_number)
 	{
+		//TODO: this 'if' is precautionary, 'name' is set in state_entry()
 		if(name == "")
 		{
 			nameKey = llDetectedKey(0);
@@ -108,6 +116,19 @@ default
 		}
 
 		if(llDetectedName(0) == name)
+		{
+			llDialog(llDetectedKey(0), "Please select an option from those below", admin_menu, _INFO_CHAN);
+		}
+		else
+		{
+			llDialog(llDetectedKey(0), "Please select an option from those below", user_menu, _INFO_CHAN);
+		}
+	}
+
+
+	listen(integer channel, string name, key id, string message)
+	{
+		if (message == "Availability")
 		{
 			if(isAvailable == FALSE)
 			{
@@ -121,26 +142,65 @@ default
 				llWhisper(0, "IM's will not be sent to you.");
 				return;
 			}
-
 		}
-		else
+		else if (message == "Welcome Card")
+		{
+			llGiveInventory(id, "Welcome Card");
+		}
+		else if (message == "Landmark")
+		{
+			llGiveInventory(id, "Second Runnings Brewery and Bar LM");
+		}
+		else if (message == "Freebies")
+		{
+			//TODO: change once we have freebies (shirt, beer bottle :)
+			llInstantMessage(id, "Sorry, nothing to give yet :(");
+		}
+		else if (message == "Package Deal")
+		{
+			llGiveInventory(id, "Welcome Card");
+			llGiveInventory(id, "Second Runnings Brewery and Bar LM");
+			//TODO: change once we have freebies (shirt, beer bottle :)
+			llInstantMessage(id, "Sorry, nothing to give yet :(");
+		}
+		else if (message == "Run Brewery")
+		{
+			//TODO: Better if we can chat a start command to the brewery
+			llInstantMessage(id, "Touch the brewery to start the process running.");
+		}
+		else if (message == "Page Kim")
 		{
 			if(isAvailable)
 			{
-				llInstantMessage(nameKey, llDetectedName(0) + " is paging you from " + llGetRegionName());
+				llInstantMessage(llGetOwner(), name + " is paging you from " + llList2String(llGetParcelDetails(llGetPos(), [ PARCEL_DETAILS_NAME ]), 0));
+				llInstantMessage(llGetOwner(), name + " is paging you from " + llList2String(llGetParcelDetails(llGetPos(), [ PARCEL_DETAILS_NAME ]), 0));
+				llInstantMessage(llGetOwner(), name + " is paging you from " + llList2String(llGetParcelDetails(llGetPos(), [ PARCEL_DETAILS_NAME ]), 0));
 				if (isOnline)
 				{
 					llWhisper(0,"A message has been sent to " + name);
 				}
 				else
 				{
-					llWhisper(0,"As she is offline, an e-mail message has been sent to " + name);
-				}	
+					llWhisper(0,"As she is offline, an e-mail message has been sent to " + llKey2Name(llGetOwner()));
+				}
 			}
 			else
 			{
 				llWhisper(0, "Sorry, " + name + " cannot be disturbed right now.");
 			}
+		}
+		else if (message == "Join Group")
+		{
+			llInstantMessage(id, "Please join our group at secondlife:///app/group/" + (string) llList2String(llGetObjectDetails(llGetKey(), [OBJECT_GROUP]), 0) + "/about");
+		}
+
+		if(llDetectedName(0) == name)
+		{
+			llDialog(llDetectedKey(0), "Please select an option from those below", admin_menu, _INFO_CHAN);
+		}
+		else
+		{
+			llDialog(llDetectedKey(0), "Please select an option from those below", user_menu, _INFO_CHAN);
 		}
 	}
 
@@ -159,7 +219,11 @@ default
 		if((integer)data == 1)
 		{
 			isOnline = TRUE;
-			llSetColor(<0,1,0>,ALL_SIDES);
+			llSetColor(<0,1,0>,0);
+			llSetColor(<0,1,0>,1);
+			llSetColor(<0,1,0>,3);
+			llSetColor(<0,1,0>,5);
+
 			text = name + " is ONLINE";
 			if(isAvailable) text += "\nClick to Send IM";
 			llSetText(text, <0.25,1.0,0.25>,1);
@@ -168,7 +232,11 @@ default
 		else
 		{
 			isOnline = FALSE;
-			llSetColor(<1,0,0>,ALL_SIDES);
+			llSetColor(<1,0,0>,0);
+			llSetColor(<1,0,0>,1);
+			llSetColor(<1,0,0>,3);
+			llSetColor(<1,0,0>,5);
+
 			text = name + " is OFFLINE";
 
 			if(last_online == "") last_online = get_date();
@@ -181,5 +249,3 @@ default
 
 // Look for updates at : http://www.free-lsl-scripts.com/freescripts.plx?ID=132
 // __END__
-
-
