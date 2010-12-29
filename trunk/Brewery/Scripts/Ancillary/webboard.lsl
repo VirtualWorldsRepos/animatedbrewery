@@ -5,7 +5,7 @@ integer    _WEB_CHAN = 6907;
 string  notecard_name = "Config";
 key     notecard_key  = NULL_KEY;
 integer iLine = 0;
-key     kQuery;
+
 list    sites = [ "http://www.thebrewingnetwork.com",
 	"http://www.bjcp.org",
 	"http://www.babbrewers.com",
@@ -27,12 +27,16 @@ default
 	{
 		//        notecard_key = llGetInventoryKey(notecard_name);
 		//        kQuery       = llGetNotecardLine(notecard_name, iLine);
-		status = llSetPrimMediaParams(0, [
-			PRIM_MEDIA_CONTROLS, PRIM_MEDIA_CONTROLS_MINI,
-			PRIM_MEDIA_AUTO_PLAY, TRUE,
-			PRIM_MEDIA_AUTO_ZOOM, TRUE, 
-			PRIM_MEDIA_CURRENT_URL, llList2String(sites, 0)
-				]);
+
+//		status = llSetPrimMediaParams(0, [
+//			PRIM_MEDIA_CONTROLS, PRIM_MEDIA_CONTROLS_MINI,
+//			PRIM_MEDIA_AUTO_PLAY, TRUE,
+//			PRIM_MEDIA_AUTO_ZOOM, TRUE, 
+//			PRIM_MEDIA_CURRENT_URL, llList2String(sites, 0)
+//				]);
+		
+		llSay(0,"MEDIA SET TO " + llList2String(sites, 0));
+		
 		llOwnerSay("Status = " + (string) status);
 		llListen(_WEB_CHAN, "", "", "");
 	}
@@ -73,16 +77,29 @@ default
 		{
 			llDialog(llDetectedKey(0), "Select the website you would like to view", menu_lables, _WEB_CHAN);
 		}
+		else if (llDetectedKey(0) != llGetOwner())
+		{
+			llDialog(llDetectedKey(0), "The Webboard is currently locked, please contact " + llKey2Name(llGetOwner()) + " to unlock or change channel.", [], _WEB_CHAN);
+		}
 	}
 
 	listen(integer channel, string name, key id, string message)
 	{
 		llOwnerSay(llList2String(sites, llListFindList(menu_lables, (list) message)));
-		llSetPrimMediaParams(0, [
-			PRIM_MEDIA_CONTROLS, PRIM_MEDIA_CONTROLS_MINI,
-			PRIM_MEDIA_AUTO_PLAY, TRUE,
-			PRIM_MEDIA_AUTO_ZOOM, TRUE, 
-			PRIM_MEDIA_CURRENT_URL, llList2String(sites, llListFindList(menu_lables, (list) message))
-				]);
+		if (!locked)
+		{
+//		llSetPrimMediaParams(0, [
+//			PRIM_MEDIA_CONTROLS, PRIM_MEDIA_CONTROLS_MINI,
+//			PRIM_MEDIA_AUTO_PLAY, TRUE,
+//			PRIM_MEDIA_AUTO_ZOOM, TRUE, 
+//			PRIM_MEDIA_CURRENT_URL, llList2String(sites, llListFindList(menu_lables, (list) message))
+		//			]);
+		// even tho locking stops the menu, if they are smart enough to talk direct then test for lock again.
+			llSay(0,"MEDIA SET TO " + llList2String(sites, llListFindList(menu_lables, (list) message)));
+		}
+		else if (id != llGetOwner())
+		{
+			llDialog(llDetectedKey(0), "The Webboard is currently locked, please contact " + llKey2Name(llGetOwner()) + " to unlock or change channel.", [], _WEB_CHAN);
+		}
 	}
 }
