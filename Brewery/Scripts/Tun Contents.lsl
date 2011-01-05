@@ -142,8 +142,6 @@ steam_off()
 }
 
 //constants
-integer _INTERNAL_CHANNEL = 6902;  // Reserve Mash Tun Comm channel as 6902
-//integer _INTERNAL_CHANNEL = 6903; // Reserve Kettle Comm channel as 6903
 string  _EMPTY   = "EMPTY";
 string  _HALF    = "HALF";
 string  _FULL    = "FULL";
@@ -154,7 +152,9 @@ list full_processes;
 list big_steam_processes;
 list little_steam_processes;
 
-list whirlpool_processes;
+list whirlpool_processes; // processes where we whirlpool the object
+list wort_processes; // processes where contents texture is wort
+list grain_processes; // processes where contents texture is grain (else it's mash)
 
 vector  starting_pos;
 integer chan;
@@ -174,6 +174,8 @@ default
 			little_steam_processes += [_MASHING, _MASH_REST, _LAUTERING, _SPARGING ];
 			big_steam_processes = [];
 			whirlpool_processes = [];
+			wort_processes = [];
+			grain_processes = [ _MILLING ];
 		}
 		else if (my_name == _WORT)
 		{
@@ -183,6 +185,8 @@ default
 			big_steam_processes += [ _BOILING ];
 			little_steam_processes = [ _LAUTERING, _SPARGING ];
 			whirlpool_processes = [_WHIRLPOOLING];
+			wort_processes = [ _BOILING, _WHIRLPOOLING, _CHILLING ];
+			grain_processes = [];
 		}
 		else if (my_name == _HOTL)
 		{
@@ -206,7 +210,7 @@ default
 	{
 		if (id == id) // make sure it's the brewery talking to us!
 		{
-//			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + (string) id + " " + name);
+			//			llOwnerSay("CHANNEL, ID and NAME are: " + (string) ch + " " + (string) id + " " + name);
 
 			// Level of tun contents ...
 			if (llListFindList(full_processes, (list) cmd) != -1)
@@ -242,8 +246,35 @@ default
 			else
 			{
 				llTargetOmega(ZERO_VECTOR, 0.0, 0.0);
+			};
+
+			// Change grain/mash Texture if required
+			if (grain_processes)
+			{
+				if (llListFindList(grain_processes, (list) cmd) != -1)
+				{
+					llSetTexture("MO", ALL_SIDES);
+				}
+				else
+				{
+					llSetTexture("Mash", ALL_SIDES);
+				}
 			}
 
+			// Change Wort/Water Texture if required
+			if (wort_processes)
+			{
+				if (llListFindList(wort_processes, (list) cmd) != -1)
+				{
+					llSetTexture("Wort", ALL_SIDES);
+					llSetColor(<1.0, 1.0, 1.0>, ALL_SIDES);
+				}
+				else
+				{
+					llSetTexture("Water", ALL_SIDES);
+					llSetColor(<0.5, 0.5, 0.5>, ALL_SIDES);
+				}
+			}
 		}
 	}
 }
