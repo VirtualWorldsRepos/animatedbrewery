@@ -38,7 +38,7 @@
 //
 // http://www.heatonresearch.com/articles/series/22/
 
-integer _INFO_CHAN = 6907;
+integer _INFO_CHAN = 6910;
 list user_menu = [ "Landmark", "Freebies", "Package Deal", "Run Brewery", "Page Kim", "Join Group", "Welcome Card" ];
 list admin_menu = [ "Landmark", "Freebies", "Package Deal", "Run Brewery", "Page Kim", "Join Group", "Welcome Card", "Availability" ];
 
