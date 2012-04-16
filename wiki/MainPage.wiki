@@ -7,4 +7,4 @@ Funtionality required:
 
 = Details =
 
-  * 
+  * ContentsScriptFunctions
