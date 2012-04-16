@@ -7,4 +7,5 @@ Funtionality required:
 
 = Details =
 
+  * MainBreweryScriptFunctions
   * ContentsScriptFunctions
