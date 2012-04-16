@@ -1,0 +1,10 @@
+#summary Functional Requirements of the Brewery Scripts
+
+= Introduction =
+
+Funtionality required:
+
+
+= Details =
+
+  * 
